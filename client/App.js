@@ -38,19 +38,17 @@ const theme = createTheme({
 
 const App = () => {
   const [data, setData] = useState({});
-  useEffect(() => {
-    const response = axios
-      .get(
+
+  useEffect(async () => {
+    try {
+      const response = await axios.get(
         "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-      )
-      .then((response) => {
-        const { data } = response;
-        console.log("🚀 ~ file: App.js ~ line 48 ~ .then ~ data", data);
-        setData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      );
+      const { data } = response;
+      setData(data);
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
 
   return (

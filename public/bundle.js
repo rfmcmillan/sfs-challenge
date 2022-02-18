@@ -4258,16 +4258,16 @@ const theme = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["default"
 
 const App = () => {
   const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    const response = axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json").then(response => {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(async () => {
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json");
       const {
         data
       } = response;
-      console.log("🚀 ~ file: App.js ~ line 48 ~ .then ~ data", data);
       setData(data);
-    }).catch(error => {
+    } catch (error) {
       console.error(error);
-    });
+    }
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["default"], {
     theme: theme
