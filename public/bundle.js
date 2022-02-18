@@ -4292,6 +4292,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 const DebtTable = props => {
@@ -4299,9 +4302,22 @@ const DebtTable = props => {
     data
   } = props;
   console.log("🚀 ~ file: DebtTable.js ~ line 5 ~ DebtTable ~ data", data);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    "data-testid": "header-cell"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    "data-testid": "header-cell"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    "data-testid": "header-cell"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    "data-testid": "header-cell"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    "data-testid": "header-cell"
+  })));
 };
 
+DebtTable.propTypes = {
+  data: prop_types__WEBPACK_IMPORTED_MODULE_1__.PropTypes.object
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DebtTable);
 
 /***/ }),
