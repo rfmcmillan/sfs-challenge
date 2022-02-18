@@ -37,7 +37,7 @@ const theme = createTheme({
 });
 
 const App = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(async () => {
     try {
