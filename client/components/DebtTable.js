@@ -5,6 +5,7 @@ import TotalRow from "./TotalRow";
 
 const DebtTable = (props) => {
   const { data: debts } = props;
+  console.log("🚀 ~ file: DebtTable.js ~ line 8 ~ DebtTable ~ debts", debts);
   const [selectedDebts, setSelectedDebts] = useState([]);
 
   const handleCheck = (event) => {
@@ -47,13 +48,10 @@ const DebtTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {debts ? (
-            debts.map((row) => {
-              return <Row key={row.id} row={row} handleCheck={handleCheck} />;
-            })
-          ) : (
-            <tr data-testid="empty-row-test"></tr>
-          )}
+          {debts.map((row) => {
+            return <Row key={row.id} row={row} handleCheck={handleCheck} />;
+          })}
+
           <TotalRow debts={debts} selectedDebts={selectedDebts} />
         </tbody>
       </table>
