@@ -65,6 +65,10 @@ const DebtTable = (props) => {
           <TotalRow debts={debts} selectedDebts={selectedDebts} />
         </tbody>
       </table>
+      <span>Total Row Count: {debts.length}</span>
+      <span id="total-check-count">
+        Total Check Count: {selectedDebts.length}
+      </span>
     </div>
   );
 };

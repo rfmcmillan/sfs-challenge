@@ -16,6 +16,10 @@ body {
   background-color: lightblue;
 }
 
+#total-check-count {
+  margin-left: 3rem;
+}
+
 .header-cell {
   border: 1px solid black;
   padding: 5px 2px 5px 2px;

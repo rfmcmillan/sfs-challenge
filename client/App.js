@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <DebtTable debts={debts} />{" "}
+      <DebtTable debts={debts} />
     </ThemeProvider>
   );
 };
