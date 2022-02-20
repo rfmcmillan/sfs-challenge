@@ -39,6 +39,18 @@ const theme = createTheme({
 const App = () => {
   const [debts, setDebts] = useState([]);
 
+  const handleAddBtnClick = (ev) => {
+    const dummyDebt = {
+      id: 99,
+      creditorName: "VISA",
+      firstName: "John",
+      lastName: "Smith",
+      minPaymentPercentage: 3.5,
+      balance: 1127.0,
+    };
+    setDebts([...debts, dummyDebt]);
+  };
+
   useEffect(async () => {
     try {
       const response = await axios.get(
@@ -53,7 +65,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <DebtTable debts={debts} />
+      <DebtTable debts={debts} handleAddBtnClick={handleAddBtnClick} />
     </ThemeProvider>
   );
 };

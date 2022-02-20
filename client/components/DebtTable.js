@@ -4,18 +4,19 @@ import Row from "./Row";
 import TotalRow from "./TotalRow";
 
 const DebtTable = (props) => {
-  const { debts } = props;
+  const { debts, handleAddBtnClick } = props;
   const [selectedDebts, setSelectedDebts] = useState([]);
 
-  const handleCheck = (event) => {
-    if (event.target.checked === true) {
+  const handleCheck = (ev) => {
+    const { target } = ev;
+    if (target.checked === true) {
       setSelectedDebts([
         ...selectedDebts,
-        { id: event.target.id, balance: parseInt(event.target.value) },
+        { id: target.id, balance: parseInt(target.value) },
       ]);
     } else {
       const filteredDebts = selectedDebts.filter((debt) => {
-        return debt.id !== event.target.id;
+        return debt.id !== target.id;
       });
       setSelectedDebts(filteredDebts);
     }
@@ -52,6 +53,8 @@ const DebtTable = (props) => {
           <TotalRow debts={debts} selectedDebts={selectedDebts} />
         </tbody>
       </table>
+      <button onClick={handleAddBtnClick}>Add Debt</button>
+      <br />
       <span>Total Row Count: {debts.length}</span>
       <span id="total-check-count">
         Total Check Count: {selectedDebts.length}
@@ -62,6 +65,7 @@ const DebtTable = (props) => {
 
 DebtTable.propTypes = {
   debts: PropTypes.array,
+  handleAddBtnClick: PropTypes.func,
 };
 
 export default DebtTable;
