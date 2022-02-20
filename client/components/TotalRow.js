@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 
 const TotalRow = (props) => {
-  const { debts, selectedDebts } = props;
+  const { selectedDebts } = props;
   const [totalBalance, setTotalBalance] = useState(0);
 
   useEffect(() => {
     const total = selectedDebts.reduce((total, currDebt) => {
-      return (total += currDebt);
+      return (total += currDebt.balance);
     }, 0);
     setTotalBalance(total);
   }, [selectedDebts]);
@@ -21,7 +21,7 @@ const TotalRow = (props) => {
 };
 
 TotalRow.propTypes = {
-  debts: PropTypes.array,
+  selectedDebts: PropTypes.array,
 };
 
 export default TotalRow;

@@ -2,34 +2,35 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 const Row = (props) => {
-  const { row, handleCheck } = props;
+  const { debt, handleCheck } = props;
 
   return (
     <tr>
       <td>
         <input
           type="checkbox"
-          id={`balance-${row.id}`}
+          id={debt.id}
           name="balance"
-          value={row.balance}
+          value={debt.balance}
           onClick={handleCheck}
         />
       </td>
       <td className="cell" data-testid="creditor-name">
-        {row.creditorName}
+        {debt.creditorName}
       </td>
       <td className="cell" data-testid="first-name">
-        {row.firstName}
+        {debt.firstName}
       </td>
-      <td className="cell">{row.lastName}</td>
-      <td className="cell">{row.minPaymentPercentage}</td>
-      <td className="cell">{row.balance}</td>
+      <td className="cell">{debt.lastName}</td>
+      <td className="cell">{debt.minPaymentPercentage}</td>
+      <td className="cell">{debt.balance}</td>
     </tr>
   );
 };
 
 Row.propTypes = {
-  row: PropTypes.object,
+  debt: PropTypes.object,
+  handleCheck: PropTypes.func,
 };
 
 export default Row;

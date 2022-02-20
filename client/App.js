@@ -37,7 +37,7 @@ const theme = createTheme({
 });
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [debts, setDebts] = useState([]);
 
   useEffect(async () => {
     try {
@@ -45,7 +45,7 @@ const App = () => {
         "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
       );
       const { data } = response;
-      setData(data);
+      setDebts(data);
     } catch (error) {
       console.error(error);
     }
@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <DebtTable data={data} />{" "}
+      <DebtTable debts={debts} />{" "}
     </ThemeProvider>
   );
 };

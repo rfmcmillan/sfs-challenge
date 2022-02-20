@@ -4,17 +4,27 @@ import Row from "./Row";
 import TotalRow from "./TotalRow";
 
 const DebtTable = (props) => {
-  const { data: debts } = props;
+  const { debts } = props;
   console.log("🚀 ~ file: DebtTable.js ~ line 8 ~ DebtTable ~ debts", debts);
   const [selectedDebts, setSelectedDebts] = useState([]);
 
   const handleCheck = (event) => {
     console.log(
-      "🚀 ~ file: DebtTable.js ~ line 11 ~ handleCheck ~ event.target",
+      "🚀 ~ file: DebtTable.js ~ line 11 ~ handleCheck ~ event.target.value",
       event.target.value
     );
-
-    setSelectedDebts([...selectedDebts, parseInt(event.target.value)]);
+    if (event.target.checked === true) {
+      setSelectedDebts([
+        ...selectedDebts,
+        { id: event.target.id, balance: parseInt(event.target.value) },
+      ]);
+    } else {
+      const filteredDebts = selectedDebts.filter((debt) => {
+        console.log("debt.id:", debt.id);
+        return debt.id !== event.target.id;
+      });
+      setSelectedDebts(filteredDebts);
+    }
   };
 
   useEffect(() => {
@@ -48,8 +58,8 @@ const DebtTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {debts.map((row) => {
-            return <Row key={row.id} row={row} handleCheck={handleCheck} />;
+          {debts.map((debt) => {
+            return <Row key={debt.id} debt={debt} handleCheck={handleCheck} />;
           })}
 
           <TotalRow debts={debts} selectedDebts={selectedDebts} />
@@ -60,7 +70,7 @@ const DebtTable = (props) => {
 };
 
 DebtTable.propTypes = {
-  data: PropTypes.array,
+  debts: PropTypes.array,
 };
 
 export default DebtTable;
