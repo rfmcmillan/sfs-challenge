@@ -35,7 +35,7 @@ test("First name column displays the first name of the loan", async () => {
     balance: 1363.0,
   };
   const row = render(
-    <table>
+    <table id="total-table">
       <tbody>
         <Row debt={rowData} />
       </tbody>

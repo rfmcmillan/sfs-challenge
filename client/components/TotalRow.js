@@ -14,12 +14,8 @@ const TotalRow = (props) => {
 
   return (
     <tr id="total-row">
-      <td>Total</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td className="cell">{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
+      <td id="total-title">Total</td>
+      <td>{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
     </tr>
   );
 };

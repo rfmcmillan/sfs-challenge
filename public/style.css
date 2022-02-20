@@ -16,6 +16,16 @@ body {
   background-color: lightblue;
 }
 
+#total-title {
+  width: 400px;
+}
+
+#total-table {
+  /* border-spacing: 0px; */
+  border-collapse: collapse;
+  border: 0px;
+}
+
 #total-check-count {
   margin-left: 3rem;
 }

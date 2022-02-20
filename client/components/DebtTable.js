@@ -49,15 +49,18 @@ const DebtTable = (props) => {
           {debts.map((debt) => {
             return <Row key={debt.id} debt={debt} handleCheck={handleCheck} />;
           })}
-
-          <TotalRow debts={debts} selectedDebts={selectedDebts} />
         </tbody>
       </table>
       <button onClick={handleAddBtnClick}>Add Debt</button>
+      <table id="total-table">
+        <tbody>
+          <TotalRow debts={debts} selectedDebts={selectedDebts} />
+        </tbody>
+      </table>
       <br />
       <span>Total Row Count: {debts.length}</span>
       <span id="total-check-count">
-        Total Check Count: {selectedDebts.length}
+        Check Row Count: {selectedDebts.length}
       </span>
     </div>
   );
