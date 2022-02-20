@@ -15,7 +15,7 @@ test("Creditor column displays the name of the creditor", async () => {
   const row = render(
     <table>
       <tbody>
-        <Row row={rowData} />
+        <Row debt={rowData} />
       </tbody>
     </table>
   );
@@ -37,7 +37,7 @@ test("First name column displays the first name of the loan", async () => {
   const row = render(
     <table>
       <tbody>
-        <Row row={rowData} />
+        <Row debt={rowData} />
       </tbody>
     </table>
   );

@@ -13,7 +13,7 @@ test("table has five header cells", async () => {
   } catch (error) {
     console.error(error);
   }
-  const debtTable = render(<DebtTable data={data} />);
+  const debtTable = render(<DebtTable debts={data} />);
 
   const headerCells = await debtTable.findAllByTestId("header-cell-test");
 

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>7/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/12</span>
+                <span class='fraction'>7/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -129,29 +129,27 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,36 +188,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useState } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 import Row from "./Row";
 import TotalRow from "./TotalRow";
 &nbsp;
 const DebtTable = (props) =&gt; {
-  const { data: debts } = props;
-  console.log("🚀 ~ file: DebtTable.js ~ line 8 ~ DebtTable ~ debts", debts);
+  const { debts } = props;
   const [selectedDebts, setSelectedDebts] = useState([]);
 &nbsp;
   const handleCheck = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
-<span class="cstat-no" title="statement not covered" >    console.log(</span>
-      "🚀 ~ file: DebtTable.js ~ line 11 ~ handleCheck ~ event.target",
-      event.target.value
-    );
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    setSelectedDebts([...selectedDebts, parseInt(event.target.value)]);</span>
+<span class="cstat-no" title="statement not covered" >    if (event.target.checked === true) {</span>
+<span class="cstat-no" title="statement not covered" >      setSelectedDebts([</span>
+        ...selectedDebts,
+        { id: event.target.id, balance: parseInt(event.target.value) },
+      ]);
+    } else {
+      const filteredDebts = <span class="cstat-no" title="statement not covered" >selectedDebts.filter(<span class="fstat-no" title="function not covered" >(d</span>ebt) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return debt.id !== event.target.id;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      setSelectedDebts(filteredDebts);</span>
+    }
   };
-&nbsp;
-  useEffect(() =&gt; {
-    console.log(
-      "🚀 ~ file: DebtTable.js ~ line 9 ~ DebtTable ~ selectedDebts",
-      selectedDebts
-    );
-  }, [selectedDebts]);
 &nbsp;
   return (
     &lt;div&gt;
@@ -245,19 +244,23 @@ const DebtTable = (props) =&gt; {
           &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-          {debts.map((row) =&gt; {
-            return &lt;Row key={row.id} row={row} handleCheck={handleCheck} /&gt;;
+          {debts.map((debt) =&gt; {
+            return &lt;Row key={debt.id} debt={debt} handleCheck={handleCheck} /&gt;;
           })}
 &nbsp;
           &lt;TotalRow debts={debts} selectedDebts={selectedDebts} /&gt;
         &lt;/tbody&gt;
       &lt;/table&gt;
+      &lt;span&gt;Total Row Count: {debts.length}&lt;/span&gt;
+      &lt;span id="total-check-count"&gt;
+        Total Check Count: {selectedDebts.length}
+      &lt;/span&gt;
     &lt;/div&gt;
   );
 };
 &nbsp;
 DebtTable.propTypes = {
-  data: PropTypes.array,
+  debts: PropTypes.array,
 };
 &nbsp;
 export default DebtTable;
@@ -268,7 +271,7 @@ export default DebtTable;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sat Feb 19 2022 15:41:08 GMT-0500 (Eastern Standard Time)
+                at Sat Feb 19 2022 21:52:29 GMT-0500 (Eastern Standard Time)
             </div>
         <script src="prettify.js"></script>
         <script>

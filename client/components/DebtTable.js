@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 import Row from "./Row";
 import TotalRow from "./TotalRow";
 
 const DebtTable = (props) => {
   const { debts } = props;
-  console.log("🚀 ~ file: DebtTable.js ~ line 8 ~ DebtTable ~ debts", debts);
   const [selectedDebts, setSelectedDebts] = useState([]);
 
   const handleCheck = (event) => {
-    console.log(
-      "🚀 ~ file: DebtTable.js ~ line 11 ~ handleCheck ~ event.target.value",
-      event.target.value
-    );
     if (event.target.checked === true) {
       setSelectedDebts([
         ...selectedDebts,
@@ -20,19 +15,11 @@ const DebtTable = (props) => {
       ]);
     } else {
       const filteredDebts = selectedDebts.filter((debt) => {
-        console.log("debt.id:", debt.id);
         return debt.id !== event.target.id;
       });
       setSelectedDebts(filteredDebts);
     }
   };
-
-  useEffect(() => {
-    console.log(
-      "🚀 ~ file: DebtTable.js ~ line 9 ~ DebtTable ~ selectedDebts",
-      selectedDebts
-    );
-  }, [selectedDebts]);
 
   return (
     <div>
