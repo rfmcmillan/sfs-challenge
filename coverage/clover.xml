@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1645303268648" clover="3.2.0">
+  <project timestamp="1645303268648" name="All files">
+    <metrics statements="25" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="6" elements="33" coveredelements="28" complexity="0" loc="25" ncloc="25" packages="1" files="3" classes="3"/>
+    <file name="DebtTable.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/DebtTable.js">
+      <metrics statements="12" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="52" count="10" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+    </file>
+    <file name="Row.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/Row.js">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="12" type="stmt"/>
+      <line num="7" count="12" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+    </file>
+    <file name="TotalRow.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/TotalRow.js">
+      <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
