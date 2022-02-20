@@ -13,9 +13,13 @@ const TotalRow = (props) => {
   }, [selectedDebts]);
 
   return (
-    <tr>
+    <tr id="total-row">
       <td>Total</td>
-      <td className="cell">{totalBalance}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td className="cell">{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
     </tr>
   );
 };
