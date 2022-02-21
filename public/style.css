@@ -1,6 +1,27 @@
-#root {
-  background-color: white;
-  margin: 0;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+}
+
+/* IDs ____________________________________________________*/
+
+#add-debt-btn {
+  background-color: #509cd6;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  color: white;
+  padding: 2px;
+}
+
+#check-row-count {
+  margin-left: 3rem;
+  font-weight: bold;
+  display: inline-block;
+  margin: 3px 5px 5px 30px;
+}
+
+#debt-table-root {
+  margin: 10px;
 }
 
 #debt-table {
@@ -8,11 +29,78 @@
   border-collapse: collapse;
 }
 
+#remove-debt-btn {
+  background-color: #509cd6;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  color: white;
+  margin-left: 10px;
+  padding: 2px;
+}
+
+#root {
+  background-color: white;
+  margin: 0;
+}
+
+#total-row {
+  background-color: #89d9ff;
+}
+
+#total-title {
+  width: 397px;
+  padding-left: 35px;
+  font-weight: bold;
+}
+
+#total-value {
+  width: 100px;
+  padding: 3px;
+  font-weight: bold;
+}
+
+#total-table {
+  border-collapse: collapse;
+  border: 0px;
+}
+
+#total-row-count {
+  font-weight: bold;
+  display: inline-block;
+  margin: 3px 5px 5px 0px;
+}
+
+/* Classes ________________________________________________*/
+
+.balance-cell {
+  width: 100px;
+}
+
+.cell {
+  border: 1px solid lightgray;
+}
+
+.checkbox-cell {
+  width: 70px;
+}
+
+.creditor-cell {
+  width: 120px;
+}
+
+.first-name-cell {
+  width: 85px;
+}
+
 .header-cell {
   border: 1px solid black;
   padding: 5px 2px 5px 2px;
 }
 
-.cell {
-  border: 1px solid lightgray;
+.last-name-cell {
+  width: 85px;
+}
+
+.min-pay-cell {
+  width: 60px;
 }
