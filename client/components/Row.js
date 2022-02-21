@@ -6,8 +6,9 @@ const Row = (props) => {
 
   return (
     <tr>
-      <td>
+      <td className="checkbox-cell" align="center">
         <input
+          data-testid={`checkbox-${debt.id}`}
           type="checkbox"
           id={debt.id}
           name="balance"
@@ -15,15 +16,20 @@ const Row = (props) => {
           onClick={handleCheck}
         />
       </td>
-      <td className="cell" data-testid="creditor-name">
+      <td className="cell creditor-cell" data-testid="creditor-name">
         {debt.creditorName}
       </td>
-      <td className="cell" data-testid="first-name">
+      <td className="cell first-name-cell" data-testid="first-name">
         {debt.firstName}
       </td>
-      <td className="cell">{debt.lastName}</td>
-      <td className="cell">{debt.minPaymentPercentage}</td>
-      <td className="cell">{debt.balance}</td>
+      <td className="cell last-name-cell">{debt.lastName}</td>
+      <td className="cell min-pay-cell" align="right">
+        {`${debt.minPaymentPercentage.toFixed(2)}%`}
+      </td>
+      <td
+        className="cell balance-cell"
+        align="right"
+      >{`${debt.balance.toLocaleString("en-US")}.00`}</td>
     </tr>
   );
 };

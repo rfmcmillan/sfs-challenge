@@ -39,7 +39,7 @@ const theme = createTheme({
 const App = () => {
   const [debts, setDebts] = useState([]);
 
-  const handleAddBtnClick = (ev) => {
+  const handleAddBtnClick = () => {
     const dummyDebt = {
       id: 99,
       creditorName: "VISA",
@@ -49,6 +49,10 @@ const App = () => {
       balance: 1127.0,
     };
     setDebts([...debts, dummyDebt]);
+  };
+
+  const handleRemoveBtnClick = () => {
+    setDebts(debts.slice(0, -1));
   };
 
   useEffect(async () => {
@@ -65,7 +69,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <DebtTable debts={debts} handleAddBtnClick={handleAddBtnClick} />
+      <DebtTable
+        debts={debts}
+        handleAddBtnClick={handleAddBtnClick}
+        handleRemoveBtnClick={handleRemoveBtnClick}
+      />
     </ThemeProvider>
   );
 };

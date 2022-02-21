@@ -4,7 +4,7 @@ import Row from "./Row";
 import TotalRow from "./TotalRow";
 
 const DebtTable = (props) => {
-  const { debts, handleAddBtnClick } = props;
+  const { debts, handleAddBtnClick, handleRemoveBtnClick } = props;
   const [selectedDebts, setSelectedDebts] = useState([]);
 
   const handleCheck = (ev) => {
@@ -23,45 +23,73 @@ const DebtTable = (props) => {
   };
 
   return (
-    <div>
+    <div id="debt-table-root">
       <table id="debt-table" data-testid="debt-table-test">
         <thead>
           <tr>
             <th> </th>
-            <th className="header-cell" data-testid="header-cell-test">
+            <th
+              className="header-cell"
+              data-testid="header-cell-test"
+              align="left"
+            >
               Creditor
             </th>
-            <th className="header-cell" data-testid="header-cell-test">
+            <th
+              className="header-cell"
+              data-testid="header-cell-test"
+              align="left"
+            >
               First Name
             </th>
-            <th className="header-cell" data-testid="header-cell-test">
+            <th
+              className="header-cell"
+              data-testid="header-cell-test"
+              align="left"
+            >
               Last Name
             </th>
-            <th className="header-cell" data-testid="header-cell-test">
+            <th
+              className="header-cell"
+              data-testid="header-cell-test"
+              align="right"
+            >
               Min Pay%
             </th>
-            <th className="header-cell" data-testid="header-cell-test">
+            <th
+              className="header-cell"
+              data-testid="header-cell-test"
+              align="right"
+            >
               Balance
             </th>
           </tr>
         </thead>
         <tbody>
-          {debts.map((debt) => {
-            return <Row key={debt.id} debt={debt} handleCheck={handleCheck} />;
+          {debts.map((debt, idx) => {
+            return (
+              <Row
+                key={`${debt.id}-${idx}`}
+                debt={debt}
+                handleCheck={handleCheck}
+              />
+            );
           })}
         </tbody>
       </table>
-      <button onClick={handleAddBtnClick}>Add Debt</button>
+      <button id="add-debt-btn" onClick={handleAddBtnClick}>
+        Add Debt
+      </button>
+      <button id="remove-debt-btn" onClick={handleRemoveBtnClick}>
+        Remove Debt
+      </button>
       <table id="total-table">
         <tbody>
           <TotalRow debts={debts} selectedDebts={selectedDebts} />
         </tbody>
       </table>
-      <br />
-      <span>Total Row Count: {debts.length}</span>
-      <span id="total-check-count">
-        Check Row Count: {selectedDebts.length}
-      </span>
+      <p id="total-row-count">Total Row Count: {debts.length}</p>
+      <p id="check-row-count">Check Row Count: {selectedDebts.length}</p>
     </div>
   );
 };
@@ -69,6 +97,7 @@ const DebtTable = (props) => {
 DebtTable.propTypes = {
   debts: PropTypes.array,
   handleAddBtnClick: PropTypes.func,
+  handleRemoveBtnClick: PropTypes.func,
 };
 
 export default DebtTable;

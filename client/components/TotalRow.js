@@ -15,7 +15,11 @@ const TotalRow = (props) => {
   return (
     <tr id="total-row">
       <td id="total-title">Total</td>
-      <td>{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
+      <td
+        id="total-value"
+        align="right"
+        data-testid="total-value-test"
+      >{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
     </tr>
   );
 };
