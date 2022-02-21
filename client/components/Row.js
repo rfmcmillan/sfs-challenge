@@ -5,18 +5,18 @@ const Row = (props) => {
   const { debt, handleCheck } = props;
 
   return (
-    <tr>
+    <tr data-testid="row-test">
       <td className="checkbox-cell" align="center">
         <input
           data-testid={`checkbox-${debt.id}`}
-          type="checkbox"
           id={debt.id}
           name="balance"
-          value={debt.balance}
           onClick={handleCheck}
+          type="checkbox"
+          value={debt.balance}
         />
       </td>
-      <td className="cell creditor-cell" data-testid="creditor-name">
+      <td className="cell creditor-cell" data-testid={`creditor-${debt.id}`}>
         {debt.creditorName}
       </td>
       <td className="cell first-name-cell" data-testid="first-name">

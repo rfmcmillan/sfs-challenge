@@ -4,6 +4,7 @@ import { expect, test } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import DebtTable from "../components/DebtTable";
+import App from "../App";
 
 test("table has five header cells", async () => {
   try {
@@ -66,4 +67,24 @@ test("total value does not include balance value of debts whose checkboxes have 
   userEvent.click(screen.getByTestId("checkbox-1"));
   expect(screen.getByTestId("checkbox-1").checked).toBe(false);
   expect(screen.getByTestId("total-value-test").innerHTML).toBe("$0.00");
+});
+
+test("add button adds a new row to the table", async () => {
+  try {
+    const response = await axios.get(
+      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
+    );
+    var { data } = response;
+  } catch (error) {
+    console.error(error);
+  }
+  render(
+    <App>
+      <DebtTable debts={data} />
+    </App>
+  );
+
+  userEvent.click(screen.getByTestId("add-btn-test"));
+
+  expect(screen.getByTestId("creditor-99").innerHTML).toBe("VISA");
 });

@@ -77,7 +77,11 @@ const DebtTable = (props) => {
           })}
         </tbody>
       </table>
-      <button id="add-debt-btn" onClick={handleAddBtnClick}>
+      <button
+        id="add-debt-btn"
+        data-testid="add-btn-test"
+        onClick={handleAddBtnClick}
+      >
         Add Debt
       </button>
       <button id="remove-debt-btn" onClick={handleRemoveBtnClick}>

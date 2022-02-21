@@ -40,6 +40,7 @@ const App = () => {
   const [debts, setDebts] = useState([]);
 
   const handleAddBtnClick = () => {
+    console.log("clicked");
     const dummyDebt = {
       id: 99,
       creditorName: "VISA",

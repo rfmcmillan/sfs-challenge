@@ -20,7 +20,7 @@ test("Creditor column displays the name of the creditor", async () => {
     </table>
   );
 
-  const creditorCell = await row.findByTestId("creditor-name");
+  const creditorCell = await row.findByTestId(`creditor-${rowData.id}`);
 
   expect(creditorCell.innerHTML).toContain("CBNA");
 });
