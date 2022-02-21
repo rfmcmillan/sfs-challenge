@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { expect, test } from "@jest/globals";
-import { render, screen, act, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import DebtTable from "../components/DebtTable";
 import App from "../App";
@@ -23,30 +23,14 @@ test("table has five header cells", async () => {
 });
 
 test("checkbox is checked when user clicks on it", async () => {
-  try {
-    const response = await axios.get(
-      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-    );
-    var { data } = response;
-  } catch (error) {
-    console.error(error);
-  }
-  render(<DebtTable debts={data} />);
+  render(<App />);
 
   userEvent.click(await screen.findByTestId("checkbox-1"));
-  expect(screen.getByTestId("checkbox-1").checked).toBe(true);
+  expect((await screen.findByTestId("checkbox-1")).checked).toBe(true);
 });
 
 test("total value includes balance value of debts whose checkboxes have been checked", async () => {
-  try {
-    const response = await axios.get(
-      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-    );
-    var { data } = response;
-  } catch (error) {
-    console.error(error);
-  }
-  render(<DebtTable debts={data} />);
+  render(<App />);
 
   userEvent.click(await screen.findByTestId("checkbox-1"));
   expect((await screen.findByTestId("total-value-test")).innerHTML).toBe(
@@ -55,15 +39,7 @@ test("total value includes balance value of debts whose checkboxes have been che
 });
 
 test("total value does not include balance value of debts whose checkboxes have been unchecked", async () => {
-  try {
-    const response = await axios.get(
-      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-    );
-    var { data } = response;
-  } catch (error) {
-    console.error(error);
-  }
-  render(<DebtTable debts={data} />);
+  render(<App />);
 
   userEvent.click(await screen.findByTestId("checkbox-1"));
   userEvent.click(await screen.findByTestId("checkbox-1"));
