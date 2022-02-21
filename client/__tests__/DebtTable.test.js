@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { expect, test } from "@jest/globals";
-import { render, screen } from "@testing-library/react";
+import { render, screen, act, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import DebtTable from "../components/DebtTable";
 import App from "../App";
@@ -33,7 +33,7 @@ test("checkbox is checked when user clicks on it", async () => {
   }
   render(<DebtTable debts={data} />);
 
-  userEvent.click(screen.getByTestId("checkbox-1"));
+  userEvent.click(await screen.findByTestId("checkbox-1"));
   expect(screen.getByTestId("checkbox-1").checked).toBe(true);
 });
 
@@ -48,8 +48,10 @@ test("total value includes balance value of debts whose checkboxes have been che
   }
   render(<DebtTable debts={data} />);
 
-  userEvent.click(screen.getByTestId("checkbox-1"));
-  expect(screen.getByTestId("total-value-test").innerHTML).toBe("$1,363.00");
+  userEvent.click(await screen.findByTestId("checkbox-1"));
+  expect((await screen.findByTestId("total-value-test")).innerHTML).toBe(
+    "$1,363.00"
+  );
 });
 
 test("total value does not include balance value of debts whose checkboxes have been unchecked", async () => {
@@ -63,28 +65,30 @@ test("total value does not include balance value of debts whose checkboxes have 
   }
   render(<DebtTable debts={data} />);
 
-  userEvent.click(screen.getByTestId("checkbox-1"));
-  userEvent.click(screen.getByTestId("checkbox-1"));
-  expect(screen.getByTestId("checkbox-1").checked).toBe(false);
-  expect(screen.getByTestId("total-value-test").innerHTML).toBe("$0.00");
+  userEvent.click(await screen.findByTestId("checkbox-1"));
+  userEvent.click(await screen.findByTestId("checkbox-1"));
+  expect((await screen.findByTestId("checkbox-1")).checked).toBe(false);
+  expect((await screen.findByTestId("total-value-test")).innerHTML).toBe(
+    "$0.00"
+  );
 });
 
-test("add button adds a new row to the table", async () => {
-  try {
-    const response = await axios.get(
-      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-    );
-    var { data } = response;
-  } catch (error) {
-    console.error(error);
-  }
-  render(
-    <App>
-      <DebtTable debts={data} />
-    </App>
-  );
+test("'Add Debt' button adds a new row to the table", async () => {
+  render(<App />);
+  const amount = await screen.findAllByTestId("row-test");
+  expect(amount.length).toEqual(10);
+  userEvent.click(await screen.findByTestId("add-btn-test"));
+  const amount1 = await screen.findAllByTestId("row-test");
+  expect(amount1.length).toEqual(11);
 
-  userEvent.click(screen.getByTestId("add-btn-test"));
+  expect((await screen.findByTestId("creditor-99")).innerHTML).toBe("VISA");
+});
 
-  expect(screen.getByTestId("creditor-99").innerHTML).toBe("VISA");
+test("'Remove Debt' button removes a row from the table", async () => {
+  render(<App />);
+  const amount = await screen.findAllByTestId("row-test");
+  expect(amount.length).toEqual(10);
+  userEvent.click(await screen.findByTestId("remove-btn-test"));
+  const amount1 = await screen.findAllByTestId("row-test");
+  expect(amount1.length).toEqual(9);
 });
