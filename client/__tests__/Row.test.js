@@ -27,7 +27,7 @@ describe("cell values", () => {
     );
 
     const creditor = await row.findByTestId(`creditor-${rowData.id}`);
-    expect(creditor.innerHTML).toContain("CBNA");
+    expect(creditor.innerHTML).toBe("CBNA");
   });
 
   test("'First Name' column displays the first name on the debt", async () => {

@@ -91,7 +91,6 @@ describe("buttons", () => {
     userEvent.click(await screen.findByTestId("add-btn-test"));
     const amount1 = await screen.findAllByTestId("row-test");
     expect(amount1.length).toEqual(11);
-
     expect((await screen.findByTestId("creditor-99")).innerHTML).toBe("VISA");
   });
 
