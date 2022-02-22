@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 import Row from "./Row";
 import TableHeader from "./TableHeader";
 
-const Home = (props) => {
+const DebtTable = (props) => {
   const { debts, handleCheck } = props;
 
   return (
@@ -24,9 +24,9 @@ const Home = (props) => {
   );
 };
 
-Home.propTypes = {
+DebtTable.propTypes = {
   debts: PropTypes.array,
   handleCheck: PropTypes.func,
 };
 
-export default Home;
+export default DebtTable;
