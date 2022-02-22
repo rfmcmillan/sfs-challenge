@@ -6,15 +6,21 @@ import userEvent from "@testing-library/user-event";
 import DebtTable from "../components/DebtTable";
 import App from "../App";
 
-test("table header displays correct column headers", async () => {
+const getDebts = async () => {
   try {
     const response = await axios.get(
       "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
     );
     var { data } = response;
+    return data;
   } catch (error) {
     console.error(error);
   }
+  return data;
+};
+
+test("table header displays correct column headers", async () => {
+  const data = await getDebts();
   const debtTable = render(<DebtTable debts={data} />);
 
   const creditorHeader = await debtTable.findByTestId("header-creditor");
@@ -31,14 +37,7 @@ test("table header displays correct column headers", async () => {
 });
 
 test("table displays rows for all provided debts", async () => {
-  try {
-    const response = await axios.get(
-      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-    );
-    var { data } = response;
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await getDebts();
   render(<App />);
   expect((await screen.findAllByTestId("row-test")).length).toEqual(
     data.length
