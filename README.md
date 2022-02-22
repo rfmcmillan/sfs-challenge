@@ -2,9 +2,9 @@
 
 ## Setup
 
-### Installation
+### Download
 
-To install the app, please run the below command in the terminal.
+To download the app, please run the below command in the terminal.
 
 ```
 git clone https://github.com/rfmcmillan/sfs-challenge.git
@@ -12,7 +12,9 @@ git clone https://github.com/rfmcmillan/sfs-challenge.git
 
 ### Getting started
 
-To begin, please run the below CLI commands to install dependencies, build and start the app.
+First, please navigate into the folder that was just cloned from the GitHub repository. 
+
+Then please run the below CLI commands to install dependencies, build and start the app.
 
 ```bash
 npm install
