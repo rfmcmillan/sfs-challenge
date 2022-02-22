@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for client/App.js</title>
+    <title>Code coverage report for Home/DebtTable/Row.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">client</a> App.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Home/DebtTable</a> Row.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -109,23 +109,19 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">225x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">225x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,61 +142,83 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
-import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import Home from "./components/Home";
+import { PropTypes } from "prop-types";
 &nbsp;
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 330,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
-    },
-  },
-  palette: {
-    primary: {
-      main: "#1E9AAA",
-      contrastText: "#ffffff",
-    },
-    secondary: {
-      main: "#06d6a0",
-      contrastText: "#4e4e4e",
-    },
-    text: {
-      primary: "#4e4e4e",
-    },
-    info: {
-      main: "#fdb000",
-      contrastText: "#F8F8F8",
-    },
-    success: {
-      main: "#06d6a0",
-      contrastText: "#4e4e4e",
-    },
-  },
-});
+const Row = (props) =&gt; {
+  const { debt, handleCheck } = props;
 &nbsp;
-const App = () =&gt; {
   return (
-    &lt;ThemeProvider theme={theme}&gt;
-      &lt;Home /&gt;
-    &lt;/ThemeProvider&gt;
+    &lt;tr data-testid="row-test"&gt;
+      &lt;td className="checkbox-cell" align="center"&gt;
+        &lt;input
+          data-testid={`checkbox-${debt.id}`}
+          id={debt.id}
+          name="balance"
+          onClick={handleCheck}
+          type="checkbox"
+          value={debt.balance}
+        /&gt;
+      &lt;/td&gt;
+      &lt;td className="cell creditor-cell" data-testid={`creditor-${debt.id}`}&gt;
+        {debt.creditorName}
+      &lt;/td&gt;
+      &lt;td
+        className="cell first-name-cell"
+        data-testid={`first-name-${debt.id}`}
+      &gt;
+        {debt.firstName}
+      &lt;/td&gt;
+      &lt;td className="cell last-name-cell" data-testid={`last-name-${debt.id}`}&gt;
+        {debt.lastName}
+      &lt;/td&gt;
+      &lt;td
+        className="cell min-pay-cell"
+        data-testid={`min-pay-${debt.id}`}
+        align="right"
+      &gt;
+        {`${debt.minPaymentPercentage.toFixed(2)}%`}
+      &lt;/td&gt;
+      &lt;td
+        className="cell balance-cell"
+        data-testid={`balance-${debt.id}`}
+        align="right"
+      &gt;{`${debt.balance.toLocaleString("en-US")}.00`}&lt;/td&gt;
+    &lt;/tr&gt;
   );
 };
 &nbsp;
-export default App;
+Row.propTypes = {
+  debt: PropTypes.object,
+  handleCheck: PropTypes.func,
+};
+&nbsp;
+export default Row;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -208,16 +226,16 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Feb 22 2022 11:37:28 GMT-0500 (Eastern Standard Time)
+                at Tue Feb 22 2022 11:52:19 GMT-0500 (Eastern Standard Time)
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     
