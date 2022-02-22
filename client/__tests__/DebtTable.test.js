@@ -64,7 +64,7 @@ test("'Total' value does not include balance value of debts whose checkboxes hav
   );
 });
 
-test("'Total Row Count' equals total amount of rows", async () => {
+test("'Total Row Count' displays total amount of rows", async () => {
   render(<App />);
   expect((await screen.findAllByTestId("row-test")).length).toBe(10);
   expect((await screen.findByTestId("total-row-count-test")).innerHTML).toBe(
@@ -72,7 +72,7 @@ test("'Total Row Count' equals total amount of rows", async () => {
   );
 });
 
-test("'Check Row Count' equals total amount of checked rows", async () => {
+test("'Check Row Count' displays total amount of checked rows", async () => {
   render(<App />);
   userEvent.click(await screen.findByTestId("checkbox-1"));
   userEvent.click(await screen.findByTestId("checkbox-2"));

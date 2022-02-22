@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { PropTypes } from "prop-types";
-import Row from "./Row";
-import TotalRow from "./TotalRow";
+import Row from "../Row";
+import TotalRow from "../TotalRow";
+import TableHeader from "./TableHeader";
 
 const DebtTable = (props) => {
   const { debts, handleAddBtnClick, handleRemoveBtnClick } = props;
@@ -25,46 +26,7 @@ const DebtTable = (props) => {
   return (
     <div id="debt-table-root">
       <table id="debt-table" data-testid="debt-table-test">
-        <thead>
-          <tr>
-            <th> </th>
-            <th
-              className="header-cell"
-              data-testid="header-creditor"
-              align="left"
-            >
-              Creditor
-            </th>
-            <th
-              className="header-cell"
-              data-testid="header-first-name"
-              align="left"
-            >
-              First Name
-            </th>
-            <th
-              className="header-cell"
-              data-testid="header-last-name"
-              align="left"
-            >
-              Last Name
-            </th>
-            <th
-              className="header-cell"
-              data-testid="header-min-pay"
-              align="right"
-            >
-              Min Pay%
-            </th>
-            <th
-              className="header-cell"
-              data-testid="header-balance"
-              align="right"
-            >
-              Balance
-            </th>
-          </tr>
-        </thead>
+        <TableHeader />
         <tbody>
           {debts.map((debt, idx) => {
             return (
