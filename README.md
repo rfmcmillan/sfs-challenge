@@ -1,4 +1,4 @@
-# Strategic Financial Solutions Coding Challenge
+# Strategic Financial Solutions Challenge
 
 ## Setup
 
@@ -23,7 +23,7 @@ In your browser, please navigate to http://localhost:8080/.
 
 ## Usage
 
-I'll be including details on usage of the app in the requested video recording. But if you encounter any problems at all with installation and usage, please don't hesitate to contact me at rfmcmillan@gmail.com and hopefully I can provide a quick fix.
+I'll be including details on usage of the app in the requested video recording. But if you encounter any problems at all with installation and usage, please don't hesitate to contact me at rfmcmillan@gmail.com - hopefully I can provide a quick fix.
 
 ## Author
 
