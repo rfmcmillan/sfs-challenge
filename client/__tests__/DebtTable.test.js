@@ -3,7 +3,7 @@ import axios from "axios";
 import { expect, test } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import DebtTable from "../components/DebtTable";
+import DebtTable from "../components/Home";
 import App from "../App";
 
 const getDebts = async () => {

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
-import Row from "./Row";
 import TotalTable from "./TotalTable";
-import TableHeader from "./TableHeader";
+import DebtTable from "./DebtTable";
 
-const DebtTable = (props) => {
+const Home = (props) => {
   const { debts, handleAddBtnClick, handleRemoveBtnClick } = props;
   const [selectedDebts, setSelectedDebts] = useState([]);
 
@@ -23,22 +22,24 @@ const DebtTable = (props) => {
     }
   };
 
+  useEffect(() => {
+    console.log("selectedDebts:", selectedDebts);
+    console.log("debts", debts);
+    const debtIds = debts.map((debt) => {
+      return debt.id;
+    });
+    console.log("🚀 ~ file: index.js ~ line 31 ~ debtIds ~ debtIds", debtIds);
+    const uncheckedDebts = selectedDebts.filter((selectedDebt) => {
+      console.log(parseInt(selectedDebt.id));
+      return debtIds.includes(parseInt(selectedDebt.id));
+    });
+
+    setSelectedDebts(uncheckedDebts);
+  }, [debts]);
+
   return (
     <div id="debt-table-root">
-      <table id="debt-table" data-testid="debt-table-test">
-        <TableHeader />
-        <tbody>
-          {debts.map((debt, idx) => {
-            return (
-              <Row
-                key={`${debt.id}-${idx}`}
-                debt={debt}
-                handleCheck={handleCheck}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+      <DebtTable debts={debts} handleCheck={handleCheck} />
       <button
         id="add-debt-btn"
         data-testid="add-btn-test"
@@ -53,9 +54,7 @@ const DebtTable = (props) => {
       >
         Remove Debt
       </button>
-
       <TotalTable debts={debts} selectedDebts={selectedDebts} />
-
       <p id="total-row-count" data-testid="total-row-count-test">
         Total Row Count: {debts.length}
       </p>
@@ -66,10 +65,10 @@ const DebtTable = (props) => {
   );
 };
 
-DebtTable.propTypes = {
+Home.propTypes = {
   debts: PropTypes.array,
   handleAddBtnClick: PropTypes.func,
   handleRemoveBtnClick: PropTypes.func,
 };
 
-export default DebtTable;
+export default Home;
