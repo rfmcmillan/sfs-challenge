@@ -30,35 +30,35 @@ const DebtTable = (props) => {
             <th> </th>
             <th
               className="header-cell"
-              data-testid="header-cell-test"
+              data-testid="header-creditor"
               align="left"
             >
               Creditor
             </th>
             <th
               className="header-cell"
-              data-testid="header-cell-test"
+              data-testid="header-first-name"
               align="left"
             >
               First Name
             </th>
             <th
               className="header-cell"
-              data-testid="header-cell-test"
+              data-testid="header-last-name"
               align="left"
             >
               Last Name
             </th>
             <th
               className="header-cell"
-              data-testid="header-cell-test"
+              data-testid="header-min-pay"
               align="right"
             >
               Min Pay%
             </th>
             <th
               className="header-cell"
-              data-testid="header-cell-test"
+              data-testid="header-balance"
               align="right"
             >
               Balance
@@ -77,10 +77,18 @@ const DebtTable = (props) => {
           })}
         </tbody>
       </table>
-      <button id="add-debt-btn" onClick={handleAddBtnClick}>
+      <button
+        id="add-debt-btn"
+        data-testid="add-btn-test"
+        onClick={handleAddBtnClick}
+      >
         Add Debt
       </button>
-      <button id="remove-debt-btn" onClick={handleRemoveBtnClick}>
+      <button
+        id="remove-debt-btn"
+        data-testid="remove-btn-test"
+        onClick={handleRemoveBtnClick}
+      >
         Remove Debt
       </button>
       <table id="total-table">
@@ -88,8 +96,12 @@ const DebtTable = (props) => {
           <TotalRow debts={debts} selectedDebts={selectedDebts} />
         </tbody>
       </table>
-      <p id="total-row-count">Total Row Count: {debts.length}</p>
-      <p id="check-row-count">Check Row Count: {selectedDebts.length}</p>
+      <p id="total-row-count" data-testid="total-row-count-test">
+        Total Row Count: {debts.length}
+      </p>
+      <p id="check-row-count" data-testid="check-row-count-test">
+        Check Row Count: {selectedDebts.length}
+      </p>
     </div>
   );
 };

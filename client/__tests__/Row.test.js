@@ -3,7 +3,7 @@ import { expect, test } from "@jest/globals";
 import { render } from "@testing-library/react";
 import Row from "../components/Row";
 
-test("Creditor column displays the name of the creditor", async () => {
+test("'Creditor' column displays the name of the creditor", async () => {
   const rowData = {
     id: 1,
     creditorName: "CBNA",
@@ -20,12 +20,12 @@ test("Creditor column displays the name of the creditor", async () => {
     </table>
   );
 
-  const creditorCell = await row.findByTestId("creditor-name");
+  const creditor = await row.findByTestId(`creditor-${rowData.id}`);
 
-  expect(creditorCell.innerHTML).toContain("CBNA");
+  expect(creditor.innerHTML).toContain("CBNA");
 });
 
-test("First name column displays the first name of the loan", async () => {
+test("'First Name' column displays the first name of the loan", async () => {
   const rowData = {
     id: 1,
     creditorName: "CBNA",
@@ -42,7 +42,73 @@ test("First name column displays the first name of the loan", async () => {
     </table>
   );
 
-  const firstNameCell = await row.findByTestId("first-name");
+  const firstName = await row.findByTestId(`first-name-${rowData.id}`);
 
-  expect(firstNameCell.innerHTML).toContain("Suman");
+  expect(firstName.innerHTML).toBe("Suman");
+});
+
+test("'Last Name' column displays the last name of the loan", async () => {
+  const rowData = {
+    id: 1,
+    creditorName: "CBNA",
+    firstName: "Suman",
+    lastName: "Tester79",
+    minPaymentPercentage: 2.0,
+    balance: 1363.0,
+  };
+  const row = render(
+    <table id="total-table">
+      <tbody>
+        <Row debt={rowData} />
+      </tbody>
+    </table>
+  );
+
+  const lastName = await row.findByTestId(`last-name-${rowData.id}`);
+
+  expect(lastName.innerHTML).toBe("Tester79");
+});
+
+test("'Min Pay %' column displays the minimum pay % of the loan", async () => {
+  const rowData = {
+    id: 1,
+    creditorName: "CBNA",
+    firstName: "Suman",
+    lastName: "Tester79",
+    minPaymentPercentage: 2.0,
+    balance: 1363.0,
+  };
+  const row = render(
+    <table id="total-table">
+      <tbody>
+        <Row debt={rowData} />
+      </tbody>
+    </table>
+  );
+
+  const minPay = await row.findByTestId(`min-pay-${rowData.id}`);
+
+  expect(minPay.innerHTML).toBe("2.00%");
+});
+
+test("'Balance' column displays the balance of the loan", async () => {
+  const rowData = {
+    id: 1,
+    creditorName: "CBNA",
+    firstName: "Suman",
+    lastName: "Tester79",
+    minPaymentPercentage: 2.0,
+    balance: 1363.0,
+  };
+  const row = render(
+    <table id="total-table">
+      <tbody>
+        <Row debt={rowData} />
+      </tbody>
+    </table>
+  );
+
+  const balance = await row.findByTestId(`balance-${rowData.id}`);
+
+  expect(balance.innerHTML).toBe("1,363.00");
 });
