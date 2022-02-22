@@ -29,7 +29,7 @@ test("'Creditor' column displays the name of the creditor", async () => {
   expect(creditor.innerHTML).toContain("CBNA");
 });
 
-test("'First Name' column displays the first name of the loan", async () => {
+test("'First Name' column displays the first name on the debt", async () => {
   const row = render(
     <table id="total-table">
       <tbody>
@@ -42,7 +42,7 @@ test("'First Name' column displays the first name of the loan", async () => {
   expect(firstName.innerHTML).toBe("Suman");
 });
 
-test("'Last Name' column displays the last name of the loan", async () => {
+test("'Last Name' column displays the last name on the debt", async () => {
   const row = render(
     <table id="total-table">
       <tbody>
@@ -55,7 +55,7 @@ test("'Last Name' column displays the last name of the loan", async () => {
   expect(lastName.innerHTML).toBe("Tester79");
 });
 
-test("'Min Pay %' column displays the minimum pay % of the loan", async () => {
+test("'Min Pay %' column displays the minimum pay % of the debt", async () => {
   const row = render(
     <table id="total-table">
       <tbody>
@@ -68,7 +68,7 @@ test("'Min Pay %' column displays the minimum pay % of the loan", async () => {
   expect(minPay.innerHTML).toBe("2.00%");
 });
 
-test("'Balance' column displays the balance of the loan", async () => {
+test("'Balance' column displays the balance of the debt", async () => {
   const row = render(
     <table id="total-table">
       <tbody>
