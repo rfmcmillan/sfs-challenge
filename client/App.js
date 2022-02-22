@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import DebtTable from "./components/DebtTable";
+import DebtTable from "./components/Home";
 
 const theme = createTheme({
   breakpoints: {

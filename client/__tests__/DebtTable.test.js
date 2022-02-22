@@ -3,18 +3,24 @@ import axios from "axios";
 import { expect, test } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import DebtTable from "../components/DebtTable";
+import DebtTable from "../components/Home";
 import App from "../App";
 
-test("table header displays correct column headers", async () => {
+const getDebts = async () => {
   try {
     const response = await axios.get(
       "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
     );
     var { data } = response;
+    return data;
   } catch (error) {
     console.error(error);
   }
+  return data;
+};
+
+test("table header displays correct column headers", async () => {
+  const data = await getDebts();
   const debtTable = render(<DebtTable debts={data} />);
 
   const creditorHeader = await debtTable.findByTestId("header-creditor");
@@ -31,14 +37,7 @@ test("table header displays correct column headers", async () => {
 });
 
 test("table displays rows for all provided debts", async () => {
-  try {
-    const response = await axios.get(
-      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-    );
-    var { data } = response;
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await getDebts();
   render(<App />);
   expect((await screen.findAllByTestId("row-test")).length).toEqual(
     data.length
@@ -65,7 +64,7 @@ test("'Total' value does not include balance value of debts whose checkboxes hav
   );
 });
 
-test("'Total Row Count' value is correct", async () => {
+test("'Total Row Count' displays total amount of rows", async () => {
   render(<App />);
   expect((await screen.findAllByTestId("row-test")).length).toBe(10);
   expect((await screen.findByTestId("total-row-count-test")).innerHTML).toBe(
@@ -73,7 +72,7 @@ test("'Total Row Count' value is correct", async () => {
   );
 });
 
-test("'Check Row Count' value is correct", async () => {
+test("'Check Row Count' displays total amount of checked rows", async () => {
   render(<App />);
   userEvent.click(await screen.findByTestId("checkbox-1"));
   userEvent.click(await screen.findByTestId("checkbox-2"));

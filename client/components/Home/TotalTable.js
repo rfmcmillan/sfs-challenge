@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
 
-const TotalRow = (props) => {
+const TotalTable = (props) => {
   const { selectedDebts } = props;
   const [totalBalance, setTotalBalance] = useState(0);
 
@@ -13,19 +13,23 @@ const TotalRow = (props) => {
   }, [selectedDebts]);
 
   return (
-    <tr id="total-row">
-      <td id="total-title">Total</td>
-      <td
-        id="total-value"
-        align="right"
-        data-testid="total-value-test"
-      >{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
-    </tr>
+    <table id="total-table">
+      <tbody>
+        <tr id="total-row">
+          <td id="total-title">Total</td>
+          <td
+            id="total-value"
+            align="right"
+            data-testid="total-value-test"
+          >{`$${totalBalance.toLocaleString("en-US")}.00`}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
-TotalRow.propTypes = {
+TotalTable.propTypes = {
   selectedDebts: PropTypes.array,
 };
 
-export default TotalRow;
+export default TotalTable;
