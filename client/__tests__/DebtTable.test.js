@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import DebtTable from "../components/DebtTable";
 import App from "../App";
 
-test("table has five header cells", async () => {
+test("table header displays correct column headers", async () => {
   try {
     const response = await axios.get(
       "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
@@ -17,19 +17,35 @@ test("table has five header cells", async () => {
   }
   const debtTable = render(<DebtTable debts={data} />);
 
-  const headerCells = await debtTable.findAllByTestId("header-cell-test");
+  const creditorHeader = await debtTable.findByTestId("header-creditor");
+  const firstNameHeader = await debtTable.findByTestId("header-first-name");
+  const lastNameHeader = await debtTable.findByTestId("header-last-name");
+  const minPayHeader = await debtTable.findByTestId("header-min-pay");
+  const balanceHeader = await debtTable.findByTestId("header-balance");
 
-  expect(headerCells.length).toBe(5);
+  expect(creditorHeader.innerHTML).toBe("Creditor");
+  expect(firstNameHeader.innerHTML).toBe("First Name");
+  expect(lastNameHeader.innerHTML).toBe("Last Name");
+  expect(minPayHeader.innerHTML).toBe("Min Pay%");
+  expect(balanceHeader.innerHTML).toBe("Balance");
 });
 
-test("checkbox is checked when user clicks on it", async () => {
+test("table displays rows for all provided debts", async () => {
+  try {
+    const response = await axios.get(
+      "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
+    );
+    var { data } = response;
+  } catch (error) {
+    console.error(error);
+  }
   render(<App />);
-
-  userEvent.click(await screen.findByTestId("checkbox-1"));
-  expect((await screen.findByTestId("checkbox-1")).checked).toBe(true);
+  expect((await screen.findAllByTestId("row-test")).length).toEqual(
+    data.length
+  );
 });
 
-test("total value includes balance value of debts whose checkboxes have been checked", async () => {
+test("'Total' value includes balance value of debts whose checkboxes have been checked", async () => {
   render(<App />);
 
   userEvent.click(await screen.findByTestId("checkbox-1"));
@@ -38,7 +54,7 @@ test("total value includes balance value of debts whose checkboxes have been che
   );
 });
 
-test("total value does not include balance value of debts whose checkboxes have been unchecked", async () => {
+test("'Total' value does not include balance value of debts whose checkboxes have been unchecked", async () => {
   render(<App />);
 
   userEvent.click(await screen.findByTestId("checkbox-1"));
@@ -46,6 +62,25 @@ test("total value does not include balance value of debts whose checkboxes have 
   expect((await screen.findByTestId("checkbox-1")).checked).toBe(false);
   expect((await screen.findByTestId("total-value-test")).innerHTML).toBe(
     "$0.00"
+  );
+});
+
+test("'Total Row Count' value is correct", async () => {
+  render(<App />);
+  expect((await screen.findAllByTestId("row-test")).length).toBe(10);
+  expect((await screen.findByTestId("total-row-count-test")).innerHTML).toBe(
+    "Total Row Count: 10"
+  );
+});
+
+test("'Check Row Count' value is correct", async () => {
+  render(<App />);
+  userEvent.click(await screen.findByTestId("checkbox-1"));
+  userEvent.click(await screen.findByTestId("checkbox-2"));
+  userEvent.click(await screen.findByTestId("checkbox-3"));
+
+  expect((await screen.findByTestId("check-row-count-test")).innerHTML).toBe(
+    "Check Row Count: 3"
   );
 });
 
