@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { PropTypes } from "prop-types";
+import axios from "axios";
 import TotalTable from "./TotalTable";
 import DebtTable from "./DebtTable";
 
-const Home = (props) => {
-  const { debts, handleAddBtnClick, handleRemoveBtnClick } = props;
+const Home = () => {
+  const [debts, setDebts] = useState([]);
   const [selectedDebts, setSelectedDebts] = useState([]);
+
+  useEffect(async () => {
+    try {
+      const response = await axios.get(
+        "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
+      );
+      const { data } = response;
+      setDebts(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   const handleCheck = (ev) => {
     const { target } = ev;
@@ -22,15 +34,28 @@ const Home = (props) => {
     }
   };
 
+  const handleAddBtnClick = () => {
+    const dummyDebt = {
+      id: 99,
+      creditorName: "VISA",
+      firstName: "John",
+      lastName: "Smith",
+      minPaymentPercentage: 3.5,
+      balance: 1127.0,
+    };
+    setDebts([...debts, dummyDebt]);
+  };
+
+  const handleRemoveBtnClick = () => {
+    setDebts(debts.slice(0, -1));
+  };
+
   useEffect(() => {
-    console.log("selectedDebts:", selectedDebts);
-    console.log("debts", debts);
     const debtIds = debts.map((debt) => {
       return debt.id;
     });
-    console.log("🚀 ~ file: index.js ~ line 31 ~ debtIds ~ debtIds", debtIds);
+
     const uncheckedDebts = selectedDebts.filter((selectedDebt) => {
-      console.log(parseInt(selectedDebt.id));
       return debtIds.includes(parseInt(selectedDebt.id));
     });
 
@@ -63,12 +88,6 @@ const Home = (props) => {
       </p>
     </div>
   );
-};
-
-Home.propTypes = {
-  debts: PropTypes.array,
-  handleAddBtnClick: PropTypes.func,
-  handleRemoveBtnClick: PropTypes.func,
 };
 
 export default Home;

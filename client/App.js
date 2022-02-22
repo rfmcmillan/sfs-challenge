@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import DebtTable from "./components/Home";
+import Home from "./components/Home";
 
 const theme = createTheme({
   breakpoints: {
@@ -37,43 +36,9 @@ const theme = createTheme({
 });
 
 const App = () => {
-  const [debts, setDebts] = useState([]);
-
-  const handleAddBtnClick = () => {
-    const dummyDebt = {
-      id: 99,
-      creditorName: "VISA",
-      firstName: "John",
-      lastName: "Smith",
-      minPaymentPercentage: 3.5,
-      balance: 1127.0,
-    };
-    setDebts([...debts, dummyDebt]);
-  };
-
-  const handleRemoveBtnClick = () => {
-    setDebts(debts.slice(0, -1));
-  };
-
-  useEffect(async () => {
-    try {
-      const response = await axios.get(
-        "https://raw.githubusercontent.com/StrategicFS/Recruitment/master/data.json"
-      );
-      const { data } = response;
-      setDebts(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
-      <DebtTable
-        debts={debts}
-        handleAddBtnClick={handleAddBtnClick}
-        handleRemoveBtnClick={handleRemoveBtnClick}
-      />
+      <Home />
     </ThemeProvider>
   );
 };
