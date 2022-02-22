@@ -1,7 +1,7 @@
 import React from "react";
-import { expect, test } from "@jest/globals";
+import { expect, test, describe } from "@jest/globals";
 import { render } from "@testing-library/react";
-import Row from "../components/Home/Row";
+import Row from "../components/Home/DebtTable/Row";
 
 const createRowData = () => {
   return {
@@ -16,67 +16,69 @@ const createRowData = () => {
 
 const rowData = createRowData();
 
-test("'Creditor' column displays the name of the creditor", async () => {
-  const row = render(
-    <table>
-      <tbody>
-        <Row debt={rowData} />
-      </tbody>
-    </table>
-  );
+describe("cell values", () => {
+  test("'Creditor' column displays the name of the creditor", async () => {
+    const row = render(
+      <table>
+        <tbody>
+          <Row debt={rowData} />
+        </tbody>
+      </table>
+    );
 
-  const creditor = await row.findByTestId(`creditor-${rowData.id}`);
-  expect(creditor.innerHTML).toContain("CBNA");
-});
+    const creditor = await row.findByTestId(`creditor-${rowData.id}`);
+    expect(creditor.innerHTML).toContain("CBNA");
+  });
 
-test("'First Name' column displays the first name on the debt", async () => {
-  const row = render(
-    <table id="total-table">
-      <tbody>
-        <Row debt={rowData} />
-      </tbody>
-    </table>
-  );
+  test("'First Name' column displays the first name on the debt", async () => {
+    const row = render(
+      <table id="total-table">
+        <tbody>
+          <Row debt={rowData} />
+        </tbody>
+      </table>
+    );
 
-  const firstName = await row.findByTestId(`first-name-${rowData.id}`);
-  expect(firstName.innerHTML).toBe("Suman");
-});
+    const firstName = await row.findByTestId(`first-name-${rowData.id}`);
+    expect(firstName.innerHTML).toBe("Suman");
+  });
 
-test("'Last Name' column displays the last name on the debt", async () => {
-  const row = render(
-    <table id="total-table">
-      <tbody>
-        <Row debt={rowData} />
-      </tbody>
-    </table>
-  );
+  test("'Last Name' column displays the last name on the debt", async () => {
+    const row = render(
+      <table id="total-table">
+        <tbody>
+          <Row debt={rowData} />
+        </tbody>
+      </table>
+    );
 
-  const lastName = await row.findByTestId(`last-name-${rowData.id}`);
-  expect(lastName.innerHTML).toBe("Tester79");
-});
+    const lastName = await row.findByTestId(`last-name-${rowData.id}`);
+    expect(lastName.innerHTML).toBe("Tester79");
+  });
 
-test("'Min Pay %' column displays the minimum pay % of the debt", async () => {
-  const row = render(
-    <table id="total-table">
-      <tbody>
-        <Row debt={rowData} />
-      </tbody>
-    </table>
-  );
+  test("'Min Pay %' column displays the minimum pay % of the debt", async () => {
+    const row = render(
+      <table id="total-table">
+        <tbody>
+          <Row debt={rowData} />
+        </tbody>
+      </table>
+    );
 
-  const minPay = await row.findByTestId(`min-pay-${rowData.id}`);
-  expect(minPay.innerHTML).toBe("2.00%");
-});
+    const minPay = await row.findByTestId(`min-pay-${rowData.id}`);
+    expect(minPay.innerHTML).toBe("2.00%");
+  });
 
-test("'Balance' column displays the balance of the debt", async () => {
-  const row = render(
-    <table id="total-table">
-      <tbody>
-        <Row debt={rowData} />
-      </tbody>
-    </table>
-  );
+  test("'Balance' column displays the balance of the debt", async () => {
+    const row = render(
+      <table id="total-table">
+        <tbody>
+          <Row debt={rowData} />
+        </tbody>
+      </table>
+    );
 
-  const balance = await row.findByTestId(`balance-${rowData.id}`);
-  expect(balance.innerHTML).toBe("1,363.00");
+    const balance = await row.findByTestId(`balance-${rowData.id}`);
+    expect(balance.innerHTML).toBe("1,363.00");
+  });
 });

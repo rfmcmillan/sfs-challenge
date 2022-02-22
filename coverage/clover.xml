@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645545800217" clover="3.2.0">
-  <project timestamp="1645545800217" name="All files">
+<coverage generated="1645547848163" clover="3.2.0">
+  <project timestamp="1645547848163" name="All files">
     <metrics statements="52" coveredstatements="50" conditionals="2" coveredconditionals="2" methods="17" coveredmethods="16" elements="71" coveredelements="68" complexity="0" loc="52" ncloc="52" packages="3" files="6" classes="6"/>
     <package name="client">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -12,14 +12,7 @@
       </file>
     </package>
     <package name="client.components.Home">
-      <metrics statements="41" coveredstatements="39" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="12"/>
-      <file name="Row.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/Home/Row.js">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="245" type="stmt"/>
-        <line num="7" count="245" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-      </file>
+      <metrics statements="37" coveredstatements="35" conditionals="2" coveredconditionals="2" methods="12" coveredmethods="11"/>
       <file name="TotalTable.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/Home/TotalTable.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="4" count="1" type="stmt"/>
@@ -65,7 +58,14 @@
       </file>
     </package>
     <package name="client.components.Home.DebtTable">
-      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="Row.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/Home/DebtTable/Row.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="245" type="stmt"/>
+        <line num="7" count="245" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+      </file>
       <file name="TableHeader.js" path="/Users/russelmcmillan/Documents/Job Search/strategic-financial/sfs-challenge/client/components/Home/DebtTable/TableHeader.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
