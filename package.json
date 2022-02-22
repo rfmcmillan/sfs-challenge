@@ -7,6 +7,7 @@
     "build": "webpack --mode=production",
     "build:dev": "webpack --watch --mode=development",
     "start": "node server",
+    "start:demo": "npm run build & npm run start",
     "start:dev": "npm run build:dev & npm run start-server",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
     "test": "jest --verbose",
