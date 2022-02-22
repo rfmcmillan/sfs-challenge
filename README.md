@@ -12,7 +12,7 @@ git clone https://github.com/rfmcmillan/sfs-challenge.git
 
 ### Getting started
 
-First, please navigate into the folder that was just cloned from the GitHub repository. 
+First, please navigate into the folder that was just cloned from the GitHub repository.
 
 Then please run the below CLI commands to install dependencies, build and start the app.
 
@@ -22,6 +22,20 @@ npm run start:demo
 ```
 
 In your browser, please navigate to http://localhost:8080/.
+
+## Tests
+
+To run tests, please run the below CLI command.
+
+```bash
+npm t
+```
+
+To see test coverage, please run the below CLI command.
+
+```bash
+npm run test:coverage
+```
 
 ## Usage
 
