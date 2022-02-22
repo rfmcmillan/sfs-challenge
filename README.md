@@ -2,6 +2,10 @@
 
 ## Setup
 
+### Video Presentation
+
+The video is stored in this repo and is called 'Russel McMillan - Presentation'.
+
 ### Download
 
 To download the app, please run the below command in the terminal.
