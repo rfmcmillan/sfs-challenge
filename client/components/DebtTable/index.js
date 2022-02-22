@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { PropTypes } from "prop-types";
-import Row from "../Row";
-import TotalRow from "../TotalRow";
+import Row from "./Row";
+import TotalTable from "./TotalTable";
 import TableHeader from "./TableHeader";
 
 const DebtTable = (props) => {
@@ -53,11 +53,9 @@ const DebtTable = (props) => {
       >
         Remove Debt
       </button>
-      <table id="total-table">
-        <tbody>
-          <TotalRow debts={debts} selectedDebts={selectedDebts} />
-        </tbody>
-      </table>
+
+      <TotalTable debts={debts} selectedDebts={selectedDebts} />
+
       <p id="total-row-count" data-testid="total-row-count-test">
         Total Row Count: {debts.length}
       </p>
